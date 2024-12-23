@@ -1,0 +1,221 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+:root {
+  --bg-color: #F3EFEC;
+  --text-color: #312A4E;
+  --accent-color: #FFAB6B;
+  --main-font: 'Raleway', sans-serif;
+  --accent-font:'STIX Two Text', sans-serif;
+}
+.theme_dark {
+  --bg-color: #171717;
+  --text-color:#B3B3B3;
+  --accent-color: transparent;
+}
+p,
+h1,
+h2,
+h3,
+blockquote,
+ul,
+ol,
+li,
+figure {
+  margin: 0;
+}
+.page {
+  min-inline-size: 360px;
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--main-font);
+}
+.heading {
+  font-family: var(--accent-font, serif);
+  font-weight: 600;
+  line-height: .9;
+  text-align: center;
+  font-size: 30px;
+}
+.content-section {
+  padding: 0 5vi;
+}
+.header_title {
+  margin-block-end: 40px;
+  font-size: clamp(3.75rem, 2.5rem + 5.5556vw, 7.5rem);
+}
+.content_title {
+  margin: 7% 0 2.5%;
+  font-size: 30px;
+}
+.header {
+  padding-block-start: 10%;
+}
+.content__text-block {
+  font-size: 18px;
+}
+.content__text-block .content__paragraph:not(:last-child) {
+  margin-block-end: 1.5em;
+}
+.content__blockquote {
+  font-style: italic;
+  line-height: 2;
+  margin: 0 auto 1.5em;
+  width: 75%;
+}
+.content__list {
+  list-style: none;
+  padding: 0 0 0 40px;
+}
+.content__list li {
+  position: relative;
+}
+.content__list li:not(:last-of-type) {
+  margin-block-end: 10px;
+}
+.content__list li::before {
+  content: '';
+  position: absolute;
+  inline-size: 15px;
+  block-size: 15px;
+  margin-block-start: -7.5px;
+  background-image: url(../images/marker-light.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  inset-block-start: 50%;
+  inset-inline-start: -25px;
+}
+/* Шаг 6 Буквица*/
+.content__text-block_type_first-lettered:first-letter {
+  background-color: var(--accent-color);
+  display: inline-block;
+  padding: 0 4px;
+  margin-right: 1px;
+  font-weight: 700;
+  font-size: 30px;
+}
+.content__figure {
+  position: relative;
+  inline-size: calc(100% + 10vi);
+  margin: 7% auto 0;
+  inset-inline-end: 5vi;
+  padding-bottom: 91px;
+}
+.content__picture {
+  inline-size: 100%;
+}
+.content__picture-caption {
+  padding: 20px 0;
+  font-size: 18px;
+  text-align: center;
+  border-block-end: 1px solid var(--text-color);
+}
+/* Шаг 8*/
+.content__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7%;
+  border: 1px solid var(--text-color);
+  text-align: center;
+  aspect-ratio: 4/3;
+}
+.content__card-title {
+  font-size: 60px;
+}
+.content__card-subtitle {
+  font-size: 18px;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-block-start: 1px solid currentColor;
+  border-block-end: 1px solid currentColor;
+  padding-block: 20px;
+}
+
+.header__theme-toggler {
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}
+.header__theme-button {
+  position: relative;
+  border: none;
+  padding: 0;
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 18px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.header__theme-button:hover{
+  text-decoration: underline;
+}
+.header__theme-button_is-active {
+  font-weight: 700;
+}
+
+.colored-text {
+  position: relative;
+  display:inline-block;
+}
+
+.colored-text::after {
+  content: '';
+  background-color: var(--accent-color);
+  z-index: -1;
+  position:absolute;
+  block-size: 0.3em;
+  inline-size: calc(100% + 8px);
+  inset-inline-end: -4px;
+  inset-block: 0.5em;
+}
+.header__theme-button_is-active::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inline-size: calc(100% + 8px);
+  block-size: 0.3em;
+  background-color: var(--accent-color);
+  inset-block-end: .3ch;
+  inset-inline-start: -4px;
+}
+.theme_dark .header__theme-button_is-active::after {
+  background-image: url(../images/pattern.svg);
+}
+.theme_dark .colored-text::after {
+  background-image: url(../images/pattern.svg);
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 1px solid var(--text-color);
+}
+button:disabled {
+  pointer-events: none;
+}
+.footer {
+  margin-top: 10%;
+  border-block-start: 1px solid currentColor;
+  padding: 2.5%;
+  text-align: center;
+}
+.footer__copyright {
+  color: var(--text-color);
+  font-size: 18px;
+}
+
+.theme_dark .content__text-block_type_first-letter .content__paragraph:first-of-type::first-letter {
+  border: 1px solid currentColor;
+}
+.theme_dark .content__list li::before {
+  background-image: url(../images/marker-dark.svg);
+}
