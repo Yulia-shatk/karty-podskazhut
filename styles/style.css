@@ -3,6 +3,7 @@
 *::after {
   box-sizing: border-box;
 }
+
 :root {
   --bg-color: #F3EFEC;
   --text-color: #312A4E;
@@ -54,6 +55,9 @@ figure {
 .header {
   padding-block-start: 10%;
 }
+a {
+  color: inherit;
+}
 .content__text-block {
   font-size: 18px;
 }
@@ -103,10 +107,11 @@ figure {
   inline-size: calc(100% + 10vi);
   margin: 7% auto 0;
   inset-inline-end: 5vi;
-  padding-bottom: 91px;
+  margin-bottom: clamp(6.319vw, 91px, 6.389vw);
 }
 .content__picture {
-  inline-size: 100%;
+  max-width: 100%;
+  height: auto;
 }
 .content__picture-caption {
   padding: 20px 0;
@@ -212,9 +217,8 @@ button:disabled {
   color: var(--text-color);
   font-size: 18px;
 }
-
-.theme_dark .content__text-block_type_first-letter .content__paragraph:first-of-type::first-letter {
-  border: 1px solid currentColor;
+.theme_dark .content__text-block_type_first-lettered:first-letter {
+  border: 1px solid #B3B3B3;
 }
 .theme_dark .content__list li::before {
   background-image: url(../images/marker-dark.svg);
